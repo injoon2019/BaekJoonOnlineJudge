@@ -1,0 +1,63 @@
+문제
+A bit string has odd parity if the number of 1's is odd. A bit string has even parity if the number of 1's is even. Zero is considered to be an even number, so a bit string with no 1's has even parity. Note that the number of 0's does not affect the parity of a bit string.
+
+입력
+The input consists of one or more strings, each on a line by itself, followed by a line containing only "#" that signals the end of the input. Each string contains 1?31 bits followed by either a lowercase letter 'e' or a lowercase letter 'o'.
+
+출력
+Each line of output must look just like the corresponding line of input, except that the letter at the end is replaced by the correct bit so that the entire bit string has even parity (if the letter was 'e') or odd parity (if the letter was 'o').
+
+예제 입력 1 
+101e
+010010o
+1e
+000e
+110100101o
+#
+예제 출력 1 
+1010
+0100101
+11
+0000
+1101001010
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <cstring>
+#include <vector>
+using namespace std;
+
+
+
+int main(void)
+{
+	string number;
+	getline(cin, number);
+	int howManyOne = 0;
+	while (number != "#")
+	{
+		howManyOne = 0;
+		for (int i = 0; i < number.length() - 1; i++)
+		{
+			if (number[i] == '1')
+				howManyOne++;
+		}
+		if ( (number[number.length()-1] == 'e' && howManyOne % 2 == 1) || (number[number.length()-1] == 'o' && howManyOne % 2 == 0))
+		{
+			number[number.length()-1] = '1';
+		}
+		else 
+		{
+			number[number.length()-1] = '0';
+		}
+		cout << number << "\n";
+		getline(cin, number);
+
+	}
+	system("pause");
+	return 0;
+}

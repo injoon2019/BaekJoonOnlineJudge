@@ -1,0 +1,60 @@
+
+문제
+알파벳 소문자로만 이루어진 단어 S가 주어진다. 각 알파벳이 단어에 몇 개가 포함되어 있는지 구하는 프로그램을 작성하시오.
+
+입력
+첫째 줄에 단어 S가 주어진다. 단어의 길이는 100을 넘지 않으며, 알파벳 소문자로만 이루어져 있다.
+
+출력
+단어에 포함되어 있는 a의 개수, b의 개수, …, z의 개수를 공백으로 구분해서 출력한다.
+
+
+
+
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main(void)
+{	
+	char word[101];
+	char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
+	int howmany[26] = { 0 };
+	cin >> word;
+	for (int i = 0; i < strlen(word); i++)
+	{
+		for (int j = 0; j < 26; j++)
+		{
+			if (word[i] == alphabet[j])
+			{
+				howmany[j]++;
+			}
+		}
+	}
+
+	for (int j = 0; j < 26; j++)
+	{
+		cout << howmany[j] << "\n";
+	}
+
+	system("pause");
+	return 0;
+
+
+
+
+#######################
+훨씬 간결한 소스
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+char K[101], A[26];
+int main(){
+	cin >> K;
+	for (int i = 0; K[i] != 0; i++)
+		A[K[i] - 'a']++;
+	for (int i = 0; i < 26; i++)
+		printf("%d ", A[i]);
+}		

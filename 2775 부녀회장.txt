@@ -1,0 +1,45 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+
+int main(void)
+{
+	int testCase;
+	int apt[16][15] = { 0 };
+	int floor, room;
+	int sum = 0;
+	cin >> testCase;
+	for (int j = 1; j < 15; j++)	//0Ãþ
+	{
+		apt[15][j] = j;
+	}
+	for (int k = 1; k < 15; k++)	//1ÃþºÎÅÍ ÃÊ±âÈ­ 
+	{
+		for (int m = 1; m < 15; m++)
+		{
+			sum = 0;
+			for (int p = 1; p <= m; p++)
+			{
+				sum += apt[16 - k][p];
+			}
+			apt[15 - k][m] = sum ;
+		}
+	}/*
+	for (int i = 15; i >= 0; i--)
+	{
+		for (int j = 0; j < 15; j++)
+		{
+			cout << setw(4) << fixed;
+			cout << apt[15-i][j];
+		}
+		cout << "\n";
+	} */
+	for (int i = 0; i < testCase; i++)
+	{
+		cin >> floor >> room;
+		cout << apt[15-floor][room] << "\n";
+	}
+	system("pause");
+	return 0;
+}

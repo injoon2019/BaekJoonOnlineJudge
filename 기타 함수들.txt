@@ -1,0 +1,56 @@
+char numlist2[8] = { '\0' };
+cin >> num1 >> num2;
+sprintf(numlist1, "%d", num1);	//숫자를 문자열로
+
+atoi  
+#include <stdio.h>
+#include <stdlib.h>
+max=atoi(str1)+atoi(str2);	//문자열을 숫자로 
+
+
+
+bool compare(int a, int b) {
+    return a > b;
+}
+
+#include <algorithm> sort()	//정렬 함수
+int a[10] = {8, 2, 6, 4, 1, 10, 9, 5, 7, 3};
+sort(a, a + 10);		//오름차순 정렬
+vector<int> a = {8, 2, 6, 4, 1, 10, 9, 5, 7, 3};
+
+sort(a.begin(),a.end(), compare);	//내림차순 정렬
+또는
+sort(arr, arr+n); // 첫번째 항부터 n번째 항까지 오름차순으로 정렬해준다.
+reverse(arr, arr+n); // 정렬 순서를 반대로 뒤집어 준다.
+
+
+
+int a=10;
+cout<<hex<<a;	//16진수로 바꿔서 출력
+
+
+to_string  //int를 string으로?
+
+cin.tie(NULL);		//cin과 cout을 묶지 않아서 속도 향상?
+ios_base::sync_with_stdio(false);	//c와 동기화를 해제해서 속도향상?
+
+
+vect.clear()	//removes all the elements from vect
+vect.empty()	//Returns true if the vector is empty
+vect.pop_back(); //removes the last element of vect, thus reducting its size by 1.
+vect.push_back(7); // stores 7 in the last element of vect
+vect.resize(5,1);  //first number: size , second number: initialize value
+vect1.swap(vect2);  // Swaps the contents of the vector with the contents of vector2
+
+소수
+bool prime(int n)
+{
+	if (n < 2)
+		return false;
+	for (int n = 2; i*i <= n; i++)
+	{
+		if (n%i == 0)
+			return false;
+	}
+	return true;
+}

@@ -1,0 +1,38 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+
+int main(void)
+{
+	int numbers;
+	numbers= cin.get();
+	cin.ignore();
+	
+	string name;
+	
+	for (int i = 0; i < numbers; i++)
+	{
+		int spaceIndex=0;
+		int startIndex = 0;
+		getline(cin, name);
+		while (name[spaceIndex] != ' ')	//첫 어절을 찾아서 버리기 위해 첫 번째 띄어쓰기를 찾음
+		{								// name[spaceIndex] == ' '   가 논리적으로 맞지 않은가요?
+			spaceIndex++; 
+		}
+		startIndex = spaceIndex + 1;
+		string NewName;
+		while (name[startIndex] != '\0')	//띄어쓰기 다음 인덱스를 찾아서 
+		{
+			if (name[startIndex] != ' ')	//띄어쓰기가 아니면 다 따로 저장을 함
+			{
+				NewName += name[startIndex];
+			}
+			startIndex++;
+		}
+		cout << "god" + NewName << "\n";		//god랑 합쳐서 출력
+	}
+	system("pause");
+	return 0;
+}

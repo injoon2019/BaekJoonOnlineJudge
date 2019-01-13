@@ -1,0 +1,95 @@
+문제
+8진수가 주어졌을 때, 2진수로 변환하는 프로그램을 작성하시오.
+
+입력
+첫째 줄에 8진수가 주어진다. 주어지는 수의 길이는 333,334을 넘지 않는다.
+
+출력
+첫째 줄에 주어진 수를 2진수로 변환하여 출력한다. 수가 0인 경우를 제외하고는 반드시 1로 시작해야 한다.
+
+예제 입력 1 
+314
+예제 출력 1 
+11001100
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <cstring>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
+
+	string sentence;
+	getline(cin, sentence);
+	if (sentence[0] == '0')
+	{
+		cout << "0";
+		return 0;
+	}
+	switch (sentence[0])
+	{
+	case '1':
+		cout << "1";
+		break;
+	case '2':
+		cout << "10";
+		break;
+	case '3':
+		cout << "11";
+		break;
+	case '4':
+		cout << "100";
+		break;
+	case '5':
+		cout << "101";
+		break;
+	case '6':
+		cout << "110";
+		break;
+	case '7':
+		cout << "111";
+		break;
+
+	}
+	for (int i = 1; i < sentence.length(); i++)
+	{
+		switch (sentence[i])
+		{
+		case '0':
+			cout << "000";
+			break;
+		case '1':
+			cout << "001";
+			break;
+		case '2':
+			cout << "010";
+			break;
+		case '3':
+			cout << "011";
+			break;
+		case '4':
+			cout << "100";
+			break;
+		case '5':
+			cout << "101";
+			break;
+		case '6':
+			cout << "110";
+			break;
+		case '7':
+			cout << "111";
+			break;
+
+		}
+	}
+	system("pause");
+	return 0;
+}

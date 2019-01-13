@@ -1,0 +1,38 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <cstring>
+#include <vector>
+using namespace std;
+
+int main(void)
+{
+	cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
+	int number,number2;
+	cin >> number;
+	int* arr1 = new int[number];
+	for (int i = 0; i < number; i++)
+	{
+		cin >> arr1[i];
+	}
+	cin >> number2;
+	int* arr2 = new int[number2];
+	for (int i = 0; i < number2; i++)
+	{
+		cin >> arr2[i];
+	}
+	sort(arr1, arr1 + number);
+	for (int i = 0; i < number2; i++)
+	{
+		if (arr2[i] >= arr1[0] && arr2[i] <= arr1[number - 1])
+			cout << "1\n";
+		else
+			cout << "0\n";
+	}
+	system("pause");
+	return 0;
+}

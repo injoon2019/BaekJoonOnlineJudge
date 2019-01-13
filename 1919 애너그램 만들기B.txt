@@ -1,0 +1,92 @@
+문제
+두 영어 단어가 철자의 순서를 뒤바꾸어 같아질 수 있을 때, 그러한 두 단어를 서로 애너그램 관계에 있다고 한다. 예를 들면 occurs 라는 영어 단어와 succor 는 서로 애너그램 관계에 있는데, occurs의 각 문자들의 순서를 잘 바꾸면 succor이 되기 때문이다.
+
+한 편, dared와 bread는 서로 애너그램 관계에 있지 않다. 하지만 dared에서 맨 앞의 d를 제거하고, bread에서 제일 앞의 b를 제거하면, ared와 read라는 서로 애너그램 관계에 있는 단어가 남게 된다.
+
+두 개의 영어 단어가 주어졌을 때, 두 단어가 서로 애너그램 관계에 있도록 만들기 위해서 제거해야 하는 최소 개수의 문자 수를 구하는 프로그램을 작성하시오. 문자를 제거할 때에는 아무 위치에 있는 문자든지 제거할 수 있다.
+
+입력
+첫째 줄과 둘째 줄에 영어 단어가 소문자로 주어진다. 각각의 길이는 1,000자를 넘지 않으며, 적어도 한 글자로 이루어진 단어가 주어진다.
+
+출력
+첫째 줄에 답을 출력한다.
+
+예제 입력 1 
+aabbcc
+xxyybb
+예제 출력 1 
+8
+
+
+#include<cstdio>
+#include<cstring>
+
+int cnt1[30], cnt2[30];
+char str[1005];
+
+int main() {
+	scanf("%s", str);
+	int len = strlen(str);
+	for (int i = 0; i < len; i++) cnt1[str[i] - 'a']++;
+	scanf("%s", str);
+	len = strlen(str);
+	for (int i = 0; i < len; i++) cnt2[str[i] - 'a']++;
+	int ans = 0;
+	for (int i = 0; i < 26; i++) ans += (cnt1[i] - cnt2[i]) > 0 ? (cnt1[i] - cnt2[i]) : (cnt2[i] - cnt1[i]);
+	printf("%d", ans);
+	return 0;
+}
+
+
+
+
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <cstring>
+#include <vector>
+using namespace std;
+
+int main(void)
+{
+	cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
+
+	string sentence1;
+	string sentence2;
+	int trash = 0;
+	int sentenc1[26] = { 0 }, sentenc2[26] = { 0 };
+	cin >> sentence1 >> sentence2;
+	int i = 0;
+	while (sentence1[i] != '\0')
+	{
+		sentenc1[sentence1[i] - 'a']++;
+		i++;
+	}
+	i = 0;
+	while (sentence2[i] != '\0')
+	{
+		sentenc2[sentence2[i] -'a']++;
+		i++;
+	}
+	i = 0;
+	for (int i = 0; i < 26; i++)
+	{
+		if ((sentenc1[i] != sentenc2[i] ))
+		{
+			trash = abs(sentenc1[i]-sentenc2[i]) + trash;
+		}
+			
+		//else if ((sentenc2[i] != 0 && sentenc1[i] == 0))
+		//{
+			//trash = sentenc2[i] + trash;
+		//}
+	}
+	cout << trash;
+	system("pause");
+	return 0;
+}

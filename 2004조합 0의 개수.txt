@@ -1,0 +1,59 @@
+문제
+nCm의 끝자리 0의 개수를 출력하는 프로그램을 작성하시오.
+
+입력
+첫째 줄에 정수 n, m(0≤m≤n≤2,000,000,000, n!=0)이 들어온다.
+
+출력
+첫째 줄에 0의 개수를 출력한다.
+
+예제 입력 1 
+25 12
+예제 출력 1 
+2
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <cstring>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
+
+	long long int n,m;
+	cin >> n>>m;
+
+	long long int index = 5;		
+	long long int nom=0, denom1=0, denom2=0;
+	long long int tindex = 2;
+	long long int tnom = 0, tdenom1 = 0, tdenom2 = 0;
+	while (index <= 2000000000)
+	{
+		nom += n / index;
+		denom1 += m / index;
+		denom2 += (n-m) / index;
+		index = index * 5;
+		
+	}
+	while (tindex <= 2000000000)
+	{
+		tnom += n / tindex;
+		tdenom1 += m / tindex;
+		tdenom2 += (n - m) / tindex;
+		tindex = tindex * 2;
+
+	}
+	if (nom - denom1 - denom2 > tnom - tdenom1 - tdenom2)
+		cout << tnom - tdenom1 - tdenom2 << "\n";
+	else
+		cout << nom - denom1 - denom2 << "\n";
+	system("pause");
+	return 0;
+}

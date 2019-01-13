@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstring>
+#include <cmath>
+using namespace std;
+bool PrimeNumber(int num)
+{
+	if (num>2 && num % 2 == 0)
+		return false;
+	else if (num % 3 == 0)
+		return false;
+	int k = 1;
+	for (int i = 2; i < num; i++)
+	{
+		if (num%i == 0)
+			return false;
+	}
+	if (num == 1)
+		return false;
+	return true;
+}
+int main(void)
+{	
+	int num1=1, count = 0;
+	while(num1 !=0)
+	{
+		count = 0;
+		cin >> num1;
+		for (int j = num1; j <= 2*num1; j++)
+		{
+			if (PrimeNumber(j) == true)
+				count++;
+		}
+		cout << count<<"\n";
+	}
+
+	system("pause");
+	return 0;
+}
+

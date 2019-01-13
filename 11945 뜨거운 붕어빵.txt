@@ -1,0 +1,55 @@
+입력
+첫째 줄에는 두 개의 정수 N과 M(0≤N,M≤10)이 주어집니다. 둘째 줄부터 N개의 줄에 걸쳐 붕어빵의 모양이 주어집니다. 각 행에는 공백을 나타내는 ‘0‘ 또는 붕어빵을 나타내는 ‘1’이 총 M개 주어집니다. 
+
+출력
+입력으로 주어진 붕어빵이 좌우로 뒤집힌 모양을 출력하세요.
+
+예제 입력 1 
+5 7
+0010000
+0111010
+1111111
+0111010
+0010000
+예제 출력 1 
+0000100
+0101110
+1111111
+0101110
+0000100
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <cstring>
+using namespace std;
+
+int main(void)
+{
+	int n, m;
+	cin >> n >> m;
+	int* ptr = new int[m];
+	int number;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> number;
+		for (int j = 0; j < m; j++)
+		{
+			if (number == 0)
+			{
+				cout << "0";
+			}
+			else
+			{
+				cout << number % 10;
+				number = number / 10;
+			}
+		}
+		cout << "\n";
+	}
+	system("pause");
+	return 0;
+}

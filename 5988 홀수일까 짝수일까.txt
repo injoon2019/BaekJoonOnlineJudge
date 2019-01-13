@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main(void)
+{
+	int num1=0, num2;
+	char arr[60];
+	cin >> num1;
+	bool ans[100];
+	for (int i = 0; i < num1; i++)
+	{
+		cin >> arr;
+		num2 = strlen(arr);
+		if ((arr[num2 - 1] % 2) == 0)
+		{
+			ans[i] = true;
+		}
+		else
+			ans[i] = false;
+	}
+	for (int i = 0; i < num1; i++)
+	{
+		if (ans[i] == true)
+			cout << "even\n";
+		else
+			cout << "odd\n";
+	}
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,80 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <cstdlib>
+#include <cstring>
+#include <vector>
+using namespace std;
+int changeNumber(string com)
+{
+	int length = com.length();
+	int temp = 0;
+	for (int i = 0; i < length - 5; i++)
+	{
+		temp += (com[length - 1 - i] - '0')* pow((double)(10), (double)i);
+	}
+	return temp;
+}
+int main()
+{
+	cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
+	int arr[10000] = { 0, };
+	int begin=0, end = 0;
+	int testCase;
+	cin >> testCase;
+	cin.ignore();
+	string sentence;
+	while (testCase--)
+	{
+		getline(cin, sentence);
+		if (sentence[0] == 'p'&&sentence[1] == 'u')		//push
+		{
+			arr[end] = changeNumber(sentence);
+			end++;
+		}
+		else if (sentence[0] == 'f')		//front
+		{
+			if (begin == end)
+				cout << "-1\n";
+			else
+				cout << arr[begin] << "\n";
+		}
+		else if (sentence[0] == 'p')		//pop
+		{
+			if (begin == end)
+				cout << "-1\n";
+			else
+			{
+				cout << arr[begin] << "\n";
+				begin++;
+			}
+		}
+		else if (sentence[0] == 's')		//size
+		{
+			cout << end-begin << "\n";
+		}
+		else if (sentence[0] == 'e')		//empty
+		{
+			if (end == begin)
+				cout << "1\n";
+			else
+				cout << "0\n";
+		}
+		else		//back
+		{
+			if (begin == end)
+				cout << "-1\n";
+			else
+			{
+				cout << arr[end-1] << "\n";
+			}
+		}
+	}
+
+
+	system("pause");
+	return 0;
+}

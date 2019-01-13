@@ -1,0 +1,49 @@
+첫째 줄에는 테스트케이스의 개수 C가 주어진다.
+
+둘째 줄부터 각 테스트케이스마다 학생의 수 N(1 ≤ N ≤ 1000, N은 정수)이 첫 수로 주어지고, 이어서 N명의 점수가 주어진다. 점수는 0보다 크거나 같고, 100보다 작거나 같은 정수이다.
+각 케이스마다 한 줄씩 평균을 넘는 학생들의 비율을 반올림하여 소수점 셋째자리까지 출력한다.
+
+#include <iostream>
+#include <cmath>
+#include <cstring>
+using namespace std;
+
+int main(void)
+{
+	int test_case_number;
+	int student = 0, score = 0;;
+	int total = 0;
+	int* students;
+	int stu_over_mean=0;
+	double average = 0;
+	double rate_over_mean;
+	cin >> test_case_number;
+	for (int i = 0; i < test_case_number; i++)
+	{
+		cin >> student;
+		total = 0;
+		stu_over_mean = 0;
+		students = new int[student];
+		for (int j = 0; j < student; j++)
+		{
+			cin >> students[j];
+			total += students[j];
+		}
+		average =(double)total/(double)student;
+		for (int j = 0; j < student; j++)
+		{
+			if (students[j] > average)
+			{
+				stu_over_mean++;
+			}
+		}
+		rate_over_mean = ((double)stu_over_mean /(double) student)*100;
+		cout << fixed;
+		cout.precision(3);
+		cout << rate_over_mean<<"%\n";
+
+	}
+
+	system("pause");
+	return 0;
+}
